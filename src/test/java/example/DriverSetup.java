@@ -10,10 +10,9 @@ import java.io.*;
  */
 public class DriverSetup
 	{
-	private final static String FIREFOX_DRIVER_PATH = "D:/Work/MuseProject/muse-examples/webdrivers/geckodriver/0.20.1/geckodriver_win64.exe";
-//	private final static String EXTENSION_PATH = "D:/WPI/web_performance_http_monitor-1.0-an+fx.xpi";
-	private final static String EXTENSION_PATH = "D:/WPI/WebPerformanceHttpMonitorExtension";
-	//private final static String FIREFOX_DEVELOPER_BINARY_PATH = "C:\\Program Files\\Firefox Developer Edition\\firefox.exe";
+	private final static String FIREFOX_DRIVER_PATH = "geckodriver_win64.exe";
+	private final static String EXTENSION_PATH = "meddler-1.0-an+fx.xpi";
+//	private final static String FIREFOX_DEVELOPER_BINARY_PATH = "C:\\Program Files\\Firefox Developer Edition\\firefox.exe";
 
 	public static WebDriver firefox()
 		{
@@ -27,7 +26,7 @@ public class DriverSetup
 
 		// When developing the extension, it will be exploded and unsigned - Firefox will refuse to run it this way.
 		// But Developer Edition CAN run it (after toggling xpinstall.signatures.required in about:config).
-		//options.setBinary(FIREFOX_DEVELOPER_BINARY_PATH);
+//		options.setBinary(FIREFOX_DEVELOPER_BINARY_PATH);
 
 		options.setProfile(profile);
 		final FirefoxDriver driver = new FirefoxDriver(options);

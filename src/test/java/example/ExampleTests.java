@@ -60,7 +60,7 @@ public class ExampleTests
 	public void teardown()
 		{
 		_driver.quit();
-		Assert.assertFalse("404s were detected:\n" + _counter.report(), _counter.getTotal() > 0);
+		Assert.assertFalse("failures were detected:\n" + _counter.report(), _counter.getTotal() > 0);
 		}
 
 	private UrlStatusCounter _counter;
