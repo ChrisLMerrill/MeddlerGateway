@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'java-library'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+version = 0.1
+group = 'com.webperformance.selenium'
+
+dependencies {
+    api 'org.seleniumhq.selenium:selenium-java:3.13.0'
+    implementation 'com.sparkjava:spark-core:2.7.2'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-json-org:2.9.6'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.6'
+
+    testCompile 'junit:junit:4.12'
+    implementation 'org.seleniumhq.selenium:selenium-java:3.13.0'
+}
+
+// jar the sources
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+// jar the javadocs
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+// produce the sources and javadoc artifacts
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+
